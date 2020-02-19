@@ -40,6 +40,9 @@ pipelines:
     apiEndpoints:
       - hero      
     policies:
+      - log:
+          - action:
+              message: ${req.method} - ${req.originalUrl}
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
       - proxy:
@@ -52,6 +55,9 @@ pipelines:
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
+      - log:
+          - action:
+              message: ${req.method} - ${req.originalUrl}
       - proxy:
           - action:
               serviceEndpoint: power
@@ -62,6 +68,9 @@ pipelines:
     policies:
     # Uncomment `key-auth:` when instructed to in the Getting Started guide.
     # - key-auth:
+      - log:
+          - action:
+              message: ${req.method} - ${req.originalUrl}
       - proxy:
           - action:
               serviceEndpoint: threat
