@@ -1,0 +1,68 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  hero:
+    host: localhost    
+    paths: 
+      - /hero/*
+      - /hero
+  power:
+    host: localhost
+    paths: 
+      - /power/*
+      - /power
+  threat:
+    host: localhost
+    paths:
+      - /threat/*
+      - /threat
+serviceEndpoints:
+  hero:
+    url: 'http://localhost:8081'
+  power:
+    url: 'http://localhost:8082'
+  threat:
+    url: 'http://localhost:8083'
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  pipeline_1:
+    apiEndpoints:
+      - hero      
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: hero
+              changeOrigin: true
+  pipeline_2:
+    apiEndpoints:
+      - power      
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: power
+              changeOrigin: true
+  pipeline_3:
+    apiEndpoints:
+      - threat      
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: threat
+              changeOrigin: true

@@ -18,13 +18,17 @@ const getRandomPower = async () => {
 
 // adiciona poder necessario na threat
 const addPowerToThreat = async (wait) => {
-    const threat = await getRandomThreat();
-    const power = await getRandomPower();
-    if (threat && power) {
-        const { body, status } = await request(threatApi).post(`/threat/addPower/${threat.name}`).send({ power: power.name });    
-        console.log(body);
-    } else {
-        console.log('Nothing to update yet!');
+    try {
+        const threat = await getRandomThreat();
+        const power = await getRandomPower();
+        if (threat && power) {
+            const { body, status } = await request(threatApi).post(`/threat/addPower/${threat.name}`).send({ power: power.name });    
+            console.log(body);
+        } else {
+            console.log('Nothing to update yet!');
+        }        
+    } catch (error) {
+        console.log(error.message);
     }
     wait();
 }

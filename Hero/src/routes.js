@@ -6,5 +6,6 @@ router.post('/', heroController.post);
 router.get('/', heroController.getAll);
 router.get('/:name', heroController.getHeroByName);
 router.post('/addPower/:name', heroController.addSuperPower);
+router.post('/sendHero/:name/:threat', heroController.sendHero);
 
 module.exports = router;
