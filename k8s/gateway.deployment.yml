@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hvt-gateway
+spec:
+  selector:
+    matchLabels:
+      app: hvt-gateway
+  template:
+    metadata:
+      labels:
+        app: hvt-gateway
+    spec:
+      containers:
+      - name: hvt-gateway
+        image: itsadeadh2/hxt-gateway
+        ports:
+        - containerPort: 8080
+          name: gateway-port

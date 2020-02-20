@@ -2,7 +2,7 @@ const express = require('express');
 
 const server = express();
 
-const port = process.env.PORT || 8081;
+const { port } = require('./variables');
 
 const routes = require('./src/routes');
 

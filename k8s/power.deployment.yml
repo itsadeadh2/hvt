@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: power
+spec:
+  selector:
+    matchLabels:
+      app: power
+  template:
+    metadata:
+      labels:
+        app: power
+    spec:
+      containers:
+      - name: power
+        image: itsadeadh2/hxt-power        
+        ports:
+        - containerPort: 3000
+          name: power-port
+        env:
+          - name: DB_CONNECTION
+            value: 'mongodb://hvt-mongodb/PowersDB'

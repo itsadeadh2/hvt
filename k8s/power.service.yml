@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: power-service
+spec:
+  selector:
+    app: power
+  ports:
+  - port: 80
+    targetPort: power-port
+  type: ClusterIP

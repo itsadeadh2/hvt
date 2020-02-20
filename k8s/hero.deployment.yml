@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hero
+spec:
+  selector:
+    matchLabels:
+      app: hero
+  template:
+    metadata:
+      labels:
+        app: hero
+    spec:
+      containers:
+      - name: hero
+        image: itsadeadh2/hxt-hero
+        ports:
+        - containerPort: 3000
+          name: hero-port
+        env:
+          - name: POWER_API
+            value: 'power-service'
+          - name: THREAT_API
+            value: 'threat-service'
+          - name: DB_CONNECTION
+            value: 'mongodb://hvt-mongodb/HeroesDb'

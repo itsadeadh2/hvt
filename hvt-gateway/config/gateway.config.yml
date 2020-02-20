@@ -1,31 +1,31 @@
 http:
   port: 8080
-admin:
-  port: 9876
-  host: localhost
+# admin:
+#   port: 9876
+#   host: hvt-gateway-service
 apiEndpoints:
   hero:
-    host: localhost    
+    host: '*'    
     paths: 
       - /hero/*
       - /hero
   power:
-    host: localhost
+    host: '*'
     paths: 
       - /power/*
       - /power
   threat:
-    host: localhost
+    host: '*'
     paths:
       - /threat/*
       - /threat
 serviceEndpoints:
   hero:
-    url: 'http://localhost:8081'
+    url: 'http://hero-service'
   power:
-    url: 'http://localhost:8082'
+    url: 'http://power-service'
   threat:
-    url: 'http://localhost:8083'
+    url: 'http://threat-service'
 policies:
   - basic-auth
   - cors

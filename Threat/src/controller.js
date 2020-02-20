@@ -1,5 +1,5 @@
 const { Threat } = require('./model');
-const powerApi = process.env.POWER_API || 'http://localhost:8082'
+const { powerApi } = require('../variables');
 const request = require('supertest');
 
 const post = async (req, res, next) => {

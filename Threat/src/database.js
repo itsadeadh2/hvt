@@ -1,7 +1,7 @@
  
 const mongoose = require('mongoose');
 
-const db = process.env.DB_CONNECTION || 'mongodb://localhost/ThreatDB'
+const { db } = require('../variables');
 
 module.exports = () => {  
   mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })

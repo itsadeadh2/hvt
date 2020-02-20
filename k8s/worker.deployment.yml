@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hvt-worker
+spec:
+  selector:
+    matchLabels:
+      app: hvt-worker
+  template:
+    metadata:
+      labels:
+        app: hvt-worker
+    spec:
+      containers:
+      - name: hvt-worker
+        image: itsadeadh2/hxt-worker
+        env:
+          - name: POWER_API
+            value: 'power-service'
+          - name: THREAT_API
+            value: 'threat-service'    

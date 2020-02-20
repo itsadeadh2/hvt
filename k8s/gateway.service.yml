@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hvt-gateway-service
+spec:
+  selector:
+    app: hvt-gateway
+  ports:
+  - port: 80
+    targetPort: gateway-port
+    name: gateway
+  type: NodePort
